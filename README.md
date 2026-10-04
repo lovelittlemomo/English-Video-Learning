@@ -1,111 +1,85 @@
-# English Video Learning - iOS/macOS App
+# English Video Learning
 
-一个帮助用户通过视频学习英文单词的应用，支持 Mac 和 iPad。
+一个适合 Mac 和 iPad 的学习应用，帮助你在看视频时快速记录和复习英文单词。
 
-## 功能特性
+## 适用设备
 
-- 📹 上传和播放本地视频文件
-- 🎤 自动识别视频中的英文字幕（语音识别）
-- 📝 自动提取和记录英文单词
-- 📚 生词本管理
-- 📖 单词详情（释义、例句、发音）
-- 🎯 闪卡学习系统
-- 📋 学习笔记
-- 🔄 复习功能
-- 🔊 单词发音
+- MacBook（M1 / M2 / Intel）
+- iPad（iPadOS 15+）
 
-## 系统要求
+## 设计目标
 
-- **Mac**: macOS 12.0 或更高版本
-- **iPad**: iPadOS 15.0 或更高版本
-- **开发环境**: Xcode 13.0 或更高版本
-- **Swift**: 5.5 或更高版本
+- 让用户在看英文视频时，轻松记录不认识的单词
+- 支持“视频 + 单词 + 例句 + 发音 + 笔记”整合学习
+- 提供生词本和闪卡复习机制
+- 适合日常英语提升和词汇积累
 
-## 项目结构
+## 当前已搭建内容
 
-```
+这个仓库里已经开始搭建一个 SwiftUI 应用的基础结构，包含：
+
+- 统一应用入口
+- 首页标签页
+- 视频播放页面骨架
+- 单词列表页面
+- 生词本页面
+- 闪卡页面
+- 学习记录结构
+- 语音识别与发音服务抽象
+- 数据模型和视图模型
+
+## 目录结构
+
+```text
 EnglishVideoLearning/
-├── EnglishVideoLearning.xcodeproj
-├── EnglishVideoLearning/
-│   ├── App/
-│   │   └── EnglishVideoLearningApp.swift
-│   ├── Views/
-│   │   ├── ContentView.swift
-│   │   ├── VideoPlayerView.swift
-│   │   ├── WordListView.swift
-│   │   ├── VocabularyView.swift
-│   │   ├── FlashCardView.swift
-│   │   └── SettingsView.swift
-│   ├── Models/
-│   │   ├── Word.swift
-│   │   ├── Video.swift
-│   │   └── LearningSession.swift
-│   ├── ViewModels/
-│   │   ├── VideoViewModel.swift
-│   │   ├── WordViewModel.swift
-│   │   └── LearningViewModel.swift
-│   ├── Services/
-│   │   ├── VideoService.swift
-│   │   ├── SpeechRecognitionService.swift
-│   │   ├── WordExtractionService.swift
-│   │   ├── TextToSpeechService.swift
-│   │   └── DatabaseService.swift
-│   └── Utils/
-│       └── Constants.swift
+├── App/
+│   └── EnglishVideoLearningApp.swift
+├── Models/
+│   ├── Word.swift
+│   ├── VideoItem.swift
+│   └── LearningSession.swift
+├── ViewModels/
+│   ├── AppStore.swift
+│   ├── VideoViewModel.swift
+│   ├── WordViewModel.swift
+│   └── LearningViewModel.swift
+├── Services/
+│   ├── VideoService.swift
+│   ├── SpeechRecognitionService.swift
+│   ├── WordExtractionService.swift
+│   ├── TextToSpeechService.swift
+│   └── DatabaseService.swift
+├── Views/
+│   ├── ContentView.swift
+│   ├── VideoPlayerView.swift
+│   ├── WordListView.swift
+│   ├── VocabularyView.swift
+│   ├── FlashCardView.swift
+│   └── SettingsView.swift
+├── Utils/
+│   └── Constants.swift
+└── README.md
 ```
 
-## 快速开始
+## 下一步计划
 
-### 1. 环境准备
+1. 完善视频导入与播放
+2. 接入语音识别并从视频文本提取单词
+3. 完成单词详情页与例句展示
+4. 接入生词本和复习算法
+5. 完成闪卡与学习统计
+6. 继续完善 Mac + iPad 适配
 
-```bash
-# 确保已安装 Xcode
-xcode-select --install
+## 运行方式
 
-# 如果需要更新 Xcode
-# 从 App Store 打开 Xcode 并更新
-```
+你可以在 Mac 上用 Xcode 打开一个新的 SwiftUI App，然后将这些 Swift 文件放进项目中即可运行。
 
-### 2. 克隆项目
+如果你愿意，我下一步可以继续为你做：
 
-```bash
-git clone https://github.com/lovelittlemomo/English-Video-Learning.git
-cd English-Video-Learning
-```
+- 生成可直接复制到 Xcode 的完整 App 主体代码
+- 继续补齐 `Xcode project` 结构化文件
+- 继续扩展生词本和闪卡功能
 
-### 3. 打开项目
+## 说明
 
-```bash
-open EnglishVideoLearning.xcodeproj
-```
-
-### 4. 在 Xcode 中运行
-
-- 选择目标设备（Mac 或 iPad 模拟器）
-- 按 `Cmd + R` 运行应用
-
-## 开发进度
-
-- [x] 项目框架搭建
-- [ ] 第一阶段：视频上传和播放
-- [ ] 第二阶段：语音识别和单词提取
-- [ ] 第三阶段：单词表和生词本
-- [ ] 第四阶段：闪卡和复习功能
-- [ ] 第五阶段：笔记和发音功能
-- [ ] 优化和测试
-
-## 技术栈
-
-- **UI 框架**: SwiftUI
-- **数据存储**: Core Data
-- **语音识别**: Speech Framework
-- **文本转语音**: AVFoundation
-- **视频处理**: AVKit, AVFoundation
-
-## 许可证
-
-MIT
-
-## 联系方式
-
-如有问题，请创建 Issue 或 PR。
+这个项目目前是“可继续开发的代码骨架”，并非最终商业级完整产品；后续可以逐步接入真实的语音识别、词典 API、AI 学习推荐等能力。
